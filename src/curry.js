@@ -23,3 +23,17 @@ const getHighest = (x, y) => (x > y ? x : y);
 const max = reduce(getHighest, 0);
 
 assert.equal(max([10, 20, 30, 100, 50]), 100);
+
+// Slice
+const slice = curry((start, end, list) => list.slice(start, end));
+assert.deepEqual(slice(1)(3)(['JavaScript', 'TypeScript', 'React', 'Ramba']), [
+  'TypeScript',
+  'React',
+]);
+
+// Take
+const take = (end) => slice(0)(end);
+assert.deepEqual(take(2)(['JavaScript', 'TypeScript', 'React', 'Ramba']), [
+  'JavaScript',
+  'TypeScript',
+]);
