@@ -32,7 +32,7 @@ assert.deepEqual(slice(1)(3)(['JavaScript', 'TypeScript', 'React', 'Ramba']), [
 ]);
 
 // Take
-const take = (end) => slice(0)(end);
+const take = slice(0);
 assert.deepEqual(take(2)(['JavaScript', 'TypeScript', 'React', 'Ramba']), [
   'JavaScript',
   'TypeScript',
