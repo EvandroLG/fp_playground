@@ -25,7 +25,8 @@ const nameLastItem = compose(prop('name'), last);
 assert.equal(nameLastItem(items), 'Samsung TV');
 
 // normalize item names
-const normalizeItemNames = map(compose(toLower, underscore, prop('name')));
+const formatItem = compose(toLower, underscore, prop('name'));
+const normalizeItemNames = map(formatItem);
 
 assert.deepEqual(normalizeItemNames(items), [
   'nintendo_switch',
