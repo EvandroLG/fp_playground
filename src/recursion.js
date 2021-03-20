@@ -38,3 +38,20 @@ assert.deepEqual(
     filter((item) => item > 10, [10, 5, 20, 30, 2]),
     [20, 30],
 );
+
+// reduce
+const reduce = (resolver, arr, initial) => {
+    if (!arr.length) {
+        return initial;
+    }
+
+    const head = arr[0];
+    const result = resolver(initial, head);
+
+    return reduce(resolver, arr.slice(1), result);
+};
+
+assert.equal(
+    reduce((acc, cur) => acc + cur, [1, 2, 3], 0),
+    6,
+);
