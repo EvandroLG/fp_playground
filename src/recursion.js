@@ -21,3 +21,20 @@ assert.deepEqual(
     map((item) => item + 2, [1, 2, 3, 4]),
     [3, 4, 5, 6],
 );
+
+// filter
+const filter = (resolver, arr) => {
+    if (!arr.length) {
+        return [];
+    }
+
+    const head = arr[0];
+    const item = resolver(head) ? [head] : [];
+
+    return item.concat(filter(resolver, arr.slice(1)));
+};
+
+assert.deepEqual(
+    filter((item) => item > 10, [10, 5, 20, 30, 2]),
+    [20, 30],
+);
